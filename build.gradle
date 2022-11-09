@@ -1,6 +1,6 @@
 plugins {
   //inlude the nodeJS plugin to execute nodejs and npm tasks
-  id "com.moowork.node" version "1.2.0"
+  id "com.github.node-gradle.node" version "3.5.0"
 }
 
 node {
@@ -22,17 +22,11 @@ task zip(type: Zip) {
 		include "public/**"
 		include "routes/**"
 		include "views/**"
+                into 'trainSchedule'
 	}
-	destinationDir(file("dist"))
 	baseName "trainSchedule"
 }
 
-buildTypes {
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
-}
 //declare task dependencies
 build.dependsOn zip
 zip.dependsOn npm_build
