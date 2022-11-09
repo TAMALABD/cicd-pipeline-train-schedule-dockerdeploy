@@ -24,7 +24,8 @@ task zip(type: Zip) {
 		include "views/**"
                 into 'trainSchedule'
 	}
-	baseName "trainSchedule"
+        archiveFileName.set("trainSchedule.zip")
+        destinationDirectory.set(layout.buildDirectory.dir("dist"))
 }
 
 //declare task dependencies
